@@ -7,5 +7,8 @@ class Clothing(Item):
     
     def __str__(self):
         general_description = super().__str__()
-        return f"{general_description} It is made from {self.fabric} fabric."
+        return " ".join([general_description, self.display_fabric_message()])
+    
+    def display_fabric_message(self):
+        return f"It is made from {self.fabric} fabric."
     
