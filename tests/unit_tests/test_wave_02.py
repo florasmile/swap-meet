@@ -21,6 +21,13 @@ def test_items_use_custom_id_if_passed():
     assert item.id == 12345
 
 #@pytest.mark.skip
+def test_items_use_custom_id_not_int_not_none():
+    item = Item(id="hello, world")
+    assert isinstance(item.id, int)
+    assert len(str(item.id)) >= 32
+
+
+#@pytest.mark.skip
 def test_item_obj_returns_text_item_for_category():
     item = Item()
     assert item.get_category() == "Item"
